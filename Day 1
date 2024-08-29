@@ -1,0 +1,587 @@
+```python
+%pip install pandas
+```
+
+  
+    
+
+
+```python
+import pandas as pd
+```
+
+
+```python
+##COLETANDO DADOS 2016 A 2020
+```
+
+
+```python
+dados2016_1 = pd.read_csv('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/blob/main/Dia_1-Importando_dados/Datasets/dados_emprestimos/emprestimos-20161.csv?raw=true')
+dados2016_2 = pd.read_csv('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/blob/main/Dia_1-Importando_dados/Datasets/dados_emprestimos/emprestimos-20162.csv?raw=true')
+dados2017_1 = pd.read_csv('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/blob/main/Dia_1-Importando_dados/Datasets/dados_emprestimos/emprestimos-20171.csv?raw=true')
+dados2017_2 = pd.read_csv('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/blob/main/Dia_1-Importando_dados/Datasets/dados_emprestimos/emprestimos-20172.csv?raw=true')
+dados2018_1 = pd.read_csv('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/blob/main/Dia_1-Importando_dados/Datasets/dados_emprestimos/emprestimos-20181.csv?raw=true')
+dados2018_2 = pd.read_csv('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/blob/main/Dia_1-Importando_dados/Datasets/dados_emprestimos/emprestimos-20182.csv?raw=true')
+dados2019_1 = pd.read_csv('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/blob/main/Dia_1-Importando_dados/Datasets/dados_emprestimos/emprestimos-20191.csv?raw=true')
+dados2019_2 = pd.read_csv('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/blob/main/Dia_1-Importando_dados/Datasets/dados_emprestimos/emprestimos-20192.csv?raw=true')
+dados2020_1 = pd.read_csv('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/blob/main/Dia_1-Importando_dados/Datasets/dados_emprestimos/emprestimos-20201.csv?raw=true')
+
+     
+```
+
+
+```python
+##CONCATENAÇÃO PARA ORGANIZAÇÃO
+```
+
+
+```python
+emprestimos = pd.concat([dados2016_1,dados2016_2,dados2017_1,dados2017_2,dados2018_1,dados2018_2,dados2019_1,dados2019_2,dados2020_1],ignore_index=True)
+```
+
+
+```python
+emprestimos
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_emprestimo</th>
+      <th>codigo_barras</th>
+      <th>data_renovacao</th>
+      <th>data_emprestimo</th>
+      <th>data_devolucao</th>
+      <th>matricula_ou_siape</th>
+      <th>tipo_vinculo_usuario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2351371</td>
+      <td>2011010806</td>
+      <td>2016/01/13 07:22:40.736000000</td>
+      <td>2016/01/02 08:01:14.113000000</td>
+      <td>2016/01/30 07:05:05.000000000</td>
+      <td>2.014036e+09</td>
+      <td>ALUNO DE GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2351372</td>
+      <td>L078593</td>
+      <td>2016/01/31 07:31:36.960000000</td>
+      <td>2016/01/02 08:29:46.657000000</td>
+      <td>2016/02/21 13:16:48.000000000</td>
+      <td>2.016101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2351373</td>
+      <td>2010040100</td>
+      <td>2016/01/31 07:31:36.902000000</td>
+      <td>2016/01/02 08:29:46.722000000</td>
+      <td>2016/02/21 13:16:33.000000000</td>
+      <td>2.016101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2351374</td>
+      <td>2013105705</td>
+      <td>2016/01/31 07:31:36.843000000</td>
+      <td>2016/01/02 08:29:46.794000000</td>
+      <td>2016/02/21 13:15:46.000000000</td>
+      <td>2.016101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2351375</td>
+      <td>L057436</td>
+      <td>2016/01/31 07:30:36.293000000</td>
+      <td>2016/01/02 08:38:40.009000000</td>
+      <td>2016/02/21 13:16:29.000000000</td>
+      <td>2.016101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>863114</th>
+      <td>2989086</td>
+      <td>2008047044</td>
+      <td>NaN</td>
+      <td>2020/05/05 19:51:06.059000000</td>
+      <td>2021/05/13 14:53:31.000000000</td>
+      <td>3.067431e+06</td>
+      <td>SERVIDOR TÉCNICO-ADMINISTRATIVO</td>
+    </tr>
+    <tr>
+      <th>863115</th>
+      <td>2989087</td>
+      <td>2008047047</td>
+      <td>NaN</td>
+      <td>2020/05/05 19:51:06.135000000</td>
+      <td>2021/05/13 14:53:38.000000000</td>
+      <td>3.067431e+06</td>
+      <td>SERVIDOR TÉCNICO-ADMINISTRATIVO</td>
+    </tr>
+    <tr>
+      <th>863116</th>
+      <td>2989088</td>
+      <td>2010052905</td>
+      <td>NaN</td>
+      <td>2020/05/05 19:51:06.164000000</td>
+      <td>2021/05/13 15:01:46.000000000</td>
+      <td>3.067431e+06</td>
+      <td>SERVIDOR TÉCNICO-ADMINISTRATIVO</td>
+    </tr>
+    <tr>
+      <th>863117</th>
+      <td>2989089</td>
+      <td>2010048023</td>
+      <td>NaN</td>
+      <td>2020/06/09 11:54:02.669000000</td>
+      <td>2021/07/21 15:33:55.000000000</td>
+      <td>2.020101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>863118</th>
+      <td>2989090</td>
+      <td>2013106838</td>
+      <td>NaN</td>
+      <td>2020/06/09 11:54:02.852000000</td>
+      <td>2021/07/21 15:33:45.000000000</td>
+      <td>2.020101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+  </tbody>
+</table>
+<p>863119 rows × 7 columns</p>
+</div>
+
+
+
+
+```python
+##EXCLUINDO DADOS DUPLICADOS
+```
+
+
+```python
+emprestimos.drop_duplicates()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_emprestimo</th>
+      <th>codigo_barras</th>
+      <th>data_renovacao</th>
+      <th>data_emprestimo</th>
+      <th>data_devolucao</th>
+      <th>matricula_ou_siape</th>
+      <th>tipo_vinculo_usuario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2351371</td>
+      <td>2011010806</td>
+      <td>2016/01/13 07:22:40.736000000</td>
+      <td>2016/01/02 08:01:14.113000000</td>
+      <td>2016/01/30 07:05:05.000000000</td>
+      <td>2.014036e+09</td>
+      <td>ALUNO DE GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2351372</td>
+      <td>L078593</td>
+      <td>2016/01/31 07:31:36.960000000</td>
+      <td>2016/01/02 08:29:46.657000000</td>
+      <td>2016/02/21 13:16:48.000000000</td>
+      <td>2.016101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2351373</td>
+      <td>2010040100</td>
+      <td>2016/01/31 07:31:36.902000000</td>
+      <td>2016/01/02 08:29:46.722000000</td>
+      <td>2016/02/21 13:16:33.000000000</td>
+      <td>2.016101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2351374</td>
+      <td>2013105705</td>
+      <td>2016/01/31 07:31:36.843000000</td>
+      <td>2016/01/02 08:29:46.794000000</td>
+      <td>2016/02/21 13:15:46.000000000</td>
+      <td>2.016101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2351375</td>
+      <td>L057436</td>
+      <td>2016/01/31 07:30:36.293000000</td>
+      <td>2016/01/02 08:38:40.009000000</td>
+      <td>2016/02/21 13:16:29.000000000</td>
+      <td>2.016101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>863114</th>
+      <td>2989086</td>
+      <td>2008047044</td>
+      <td>NaN</td>
+      <td>2020/05/05 19:51:06.059000000</td>
+      <td>2021/05/13 14:53:31.000000000</td>
+      <td>3.067431e+06</td>
+      <td>SERVIDOR TÉCNICO-ADMINISTRATIVO</td>
+    </tr>
+    <tr>
+      <th>863115</th>
+      <td>2989087</td>
+      <td>2008047047</td>
+      <td>NaN</td>
+      <td>2020/05/05 19:51:06.135000000</td>
+      <td>2021/05/13 14:53:38.000000000</td>
+      <td>3.067431e+06</td>
+      <td>SERVIDOR TÉCNICO-ADMINISTRATIVO</td>
+    </tr>
+    <tr>
+      <th>863116</th>
+      <td>2989088</td>
+      <td>2010052905</td>
+      <td>NaN</td>
+      <td>2020/05/05 19:51:06.164000000</td>
+      <td>2021/05/13 15:01:46.000000000</td>
+      <td>3.067431e+06</td>
+      <td>SERVIDOR TÉCNICO-ADMINISTRATIVO</td>
+    </tr>
+    <tr>
+      <th>863117</th>
+      <td>2989089</td>
+      <td>2010048023</td>
+      <td>NaN</td>
+      <td>2020/06/09 11:54:02.669000000</td>
+      <td>2021/07/21 15:33:55.000000000</td>
+      <td>2.020101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+    <tr>
+      <th>863118</th>
+      <td>2989090</td>
+      <td>2013106838</td>
+      <td>NaN</td>
+      <td>2020/06/09 11:54:02.852000000</td>
+      <td>2021/07/21 15:33:45.000000000</td>
+      <td>2.020101e+10</td>
+      <td>ALUNO DE PÓS-GRADUAÇÃO</td>
+    </tr>
+  </tbody>
+</table>
+<p>863100 rows × 7 columns</p>
+</div>
+
+
+
+
+```python
+%pip install pyarrow
+%pip install fastparquet
+```
+
+    Collecting pyarrowNote: you may need to restart the kernel to use updated packages.
+    
+      Downloading pyarrow-17.0.0-cp312-cp312-win_amd64.whl.metadata (3.4 kB)
+    Requirement already satisfied: numpy>=1.16.6 in c:\users\biago\appdata\local\programs\python\python312\lib\site-packages (from pyarrow) (2.0.1)
+    Downloading pyarrow-17.0.0-cp312-cp312-win_amd64.whl (25.1 MB)
+       ---------------------------------------- 0.0/25.1 MB ? eta -:--:--
+        --------------------------------------- 0.5/25.1 MB 5.6 MB/s eta 0:00:05
+       -- ------------------------------------- 1.6/25.1 MB 4.6 MB/s eta 0:00:06
+       ---- ----------------------------------- 2.6/25.1 MB 4.7 MB/s eta 0:00:05
+       ------ --------------------------------- 3.9/25.1 MB 5.0 MB/s eta 0:00:05
+       ------- -------------------------------- 5.0/25.1 MB 5.0 MB/s eta 0:00:04
+       --------- ------------------------------ 6.0/25.1 MB 5.0 MB/s eta 0:00:04
+       ----------- ---------------------------- 7.1/25.1 MB 5.0 MB/s eta 0:00:04
+       ------------ --------------------------- 8.1/25.1 MB 4.9 MB/s eta 0:00:04
+       -------------- ------------------------- 9.2/25.1 MB 5.0 MB/s eta 0:00:04
+       ---------------- ----------------------- 10.2/25.1 MB 5.1 MB/s eta 0:00:03
+       ------------------ --------------------- 11.5/25.1 MB 5.1 MB/s eta 0:00:03
+       -------------------- ------------------- 12.8/25.1 MB 5.2 MB/s eta 0:00:03
+       ---------------------- ----------------- 14.2/25.1 MB 5.3 MB/s eta 0:00:03
+       ------------------------ --------------- 15.5/25.1 MB 5.3 MB/s eta 0:00:02
+       -------------------------- ------------- 16.5/25.1 MB 5.3 MB/s eta 0:00:02
+       ---------------------------- ----------- 17.8/25.1 MB 5.4 MB/s eta 0:00:02
+       ------------------------------ --------- 19.1/25.1 MB 5.4 MB/s eta 0:00:02
+       -------------------------------- ------- 20.4/25.1 MB 5.5 MB/s eta 0:00:01
+       ---------------------------------- ----- 21.8/25.1 MB 5.5 MB/s eta 0:00:01
+       ------------------------------------ --- 22.8/25.1 MB 5.5 MB/s eta 0:00:01
+       -------------------------------------- - 24.1/25.1 MB 5.5 MB/s eta 0:00:01
+       ---------------------------------------  24.9/25.1 MB 5.5 MB/s eta 0:00:01
+       ---------------------------------------- 25.1/25.1 MB 5.4 MB/s eta 0:00:00
+    Installing collected packages: pyarrow
+    Successfully installed pyarrow-17.0.0
+    Collecting fastparquetNote: you may need to restart the kernel to use updated packages.
+    
+      Downloading fastparquet-2024.5.0-cp312-cp312-win_amd64.whl.metadata (4.3 kB)
+    Requirement already satisfied: pandas>=1.5.0 in c:\users\biago\appdata\local\programs\python\python312\lib\site-packages (from fastparquet) (2.2.2)
+    Requirement already satisfied: numpy in c:\users\biago\appdata\local\programs\python\python312\lib\site-packages (from fastparquet) (2.0.1)
+    Collecting cramjam>=2.3 (from fastparquet)
+      Downloading cramjam-2.8.3-cp312-none-win_amd64.whl.metadata (4.3 kB)
+    Collecting fsspec (from fastparquet)
+      Downloading fsspec-2024.6.1-py3-none-any.whl.metadata (11 kB)
+    Requirement already satisfied: packaging in c:\users\biago\appdata\local\programs\python\python312\lib\site-packages (from fastparquet) (24.1)
+    Requirement already satisfied: python-dateutil>=2.8.2 in c:\users\biago\appdata\local\programs\python\python312\lib\site-packages (from pandas>=1.5.0->fastparquet) (2.9.0.post0)
+    Requirement already satisfied: pytz>=2020.1 in c:\users\biago\appdata\local\programs\python\python312\lib\site-packages (from pandas>=1.5.0->fastparquet) (2024.1)
+    Requirement already satisfied: tzdata>=2022.7 in c:\users\biago\appdata\local\programs\python\python312\lib\site-packages (from pandas>=1.5.0->fastparquet) (2024.1)
+    Requirement already satisfied: six>=1.5 in c:\users\biago\appdata\local\programs\python\python312\lib\site-packages (from python-dateutil>=2.8.2->pandas>=1.5.0->fastparquet) (1.16.0)
+    Downloading fastparquet-2024.5.0-cp312-cp312-win_amd64.whl (673 kB)
+       ---------------------------------------- 0.0/673.0 kB ? eta -:--:--
+       ---------------------------------------- 673.0/673.0 kB 4.4 MB/s eta 0:00:00
+    Downloading cramjam-2.8.3-cp312-none-win_amd64.whl (1.6 MB)
+       ---------------------------------------- 0.0/1.6 MB ? eta -:--:--
+       ---------------------------------------- 1.6/1.6 MB 8.8 MB/s eta 0:00:00
+    Downloading fsspec-2024.6.1-py3-none-any.whl (177 kB)
+    Installing collected packages: fsspec, cramjam, fastparquet
+    Successfully installed cramjam-2.8.3 fastparquet-2024.5.0 fsspec-2024.6.1
+    
+
+
+```python
+exemplares = pd.read_parquet('https://github.com/FranciscoFoz/7_Days_of_Code_Alura-Python-Pandas/raw/main/Dia_1-Importando_dados/Datasets/dados_exemplares.parquet')
+```
+
+
+```python
+##UNINDO DATAFRAMES
+```
+
+
+```python
+DadosCompletos = emprestimos.merge(exemplares)
+```
+
+
+```python
+DadosCompletos
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_exemplar</th>
+      <th>codigo_barras</th>
+      <th>colecao</th>
+      <th>biblioteca</th>
+      <th>status_material</th>
+      <th>localizacao</th>
+      <th>registro_sistema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>L000003</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Central Zila Mamede</td>
+      <td>REGULAR</td>
+      <td>694</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>L000002</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Central Zila Mamede</td>
+      <td>REGULAR</td>
+      <td>688</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>L000001</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Central Zila Mamede</td>
+      <td>ESPECIAL</td>
+      <td>638</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7</td>
+      <td>L000114</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Central Zila Mamede</td>
+      <td>REGULAR</td>
+      <td>616</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10</td>
+      <td>L000041</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Central Zila Mamede</td>
+      <td>ESPECIAL</td>
+      <td>657</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>546232</th>
+      <td>1353472</td>
+      <td>2021011150</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Setorial do Núcleo de Educação da I...</td>
+      <td>REGULAR</td>
+      <td>951</td>
+      <td>268231</td>
+    </tr>
+    <tr>
+      <th>546233</th>
+      <td>1353473</td>
+      <td>2019013454</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Central Zila Mamede</td>
+      <td>ESPECIAL</td>
+      <td>997</td>
+      <td>268233</td>
+    </tr>
+    <tr>
+      <th>546234</th>
+      <td>1353474</td>
+      <td>2019012811</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Central Zila Mamede</td>
+      <td>ESPECIAL</td>
+      <td>987</td>
+      <td>268234</td>
+    </tr>
+    <tr>
+      <th>546235</th>
+      <td>1353475</td>
+      <td>2019013451</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Central Zila Mamede</td>
+      <td>ESPECIAL</td>
+      <td>764</td>
+      <td>268235</td>
+    </tr>
+    <tr>
+      <th>546236</th>
+      <td>1353476</td>
+      <td>2019012276</td>
+      <td>Acervo Circulante</td>
+      <td>Biblioteca Central Zila Mamede</td>
+      <td>ESPECIAL</td>
+      <td>962</td>
+      <td>268236</td>
+    </tr>
+  </tbody>
+</table>
+<p>546237 rows × 7 columns</p>
+</div>
+
+
+
+
+```python
+
+```
